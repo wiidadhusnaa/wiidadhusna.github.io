@@ -1,0 +1,1306 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Family - A Love Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+:root {
+    --primary-color: #ffe6e6;
+    --secondary-color: #ffb3b3;
+    --accent-color: #ff4d4d;
+    --text-color: #4a0404;
+    --shadow-color: rgba(255, 77, 77, 0.2);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+}
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c-4-4-8-8-12-12s-8 4-12 0 4-8 0-12 8 4 12 0 8-8 12-12 4 8 8 12 8-4 12 0-4 8 0 12-8-4-12 0-8 8-12 12-4-8-8-12-8 4-12 0 4-8 0-12 8 4 12 0 8-8 12-12' fill='%23ffcccc' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+        header {
+            background: linear-gradient(135deg, #ff9999, #ff6666);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        header::before {
+            content: '♥';
+            font-size: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            color: white;
+        }
+
+header h1 {
+    font-family: var(--font-secondary);
+    font-size: 4em;
+    margin-bottom: 0.5em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+        .nav-menu {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+
+.nav-menu a {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+}
+        .nav-menu a::before {
+            content: '♥';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--accent-color);
+        }
+
+        .nav-menu a:hover::before {
+            opacity: 1;
+            top: -15px;
+        }
+
+        .family-intro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .family-intro::before,
+        .family-intro::after {
+            content: '♥';
+            font-size: 40px;
+            position: absolute;
+            color: var(--accent-color);
+            opacity: 0.2;
+        }
+
+        .family-intro::before {
+            top: 20px;
+            left: 20px;
+        }
+
+        .family-intro::after {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .family-member {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,153,153,0.2), rgba(255,102,102,0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .family-member:hover::before {
+            opacity: 1;
+        }
+
+        .family-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+
+        .love-meter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: var(--accent-color);
+        }
+
+        .love-meter i {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: var(--accent-color);
+            opacity: 0;
+            animation: float-up 4s linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Additional love-themed styles for existing sections */
+        .timeline-item {
+            border: 2px solid var(--secondary-color);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .timeline-item::after {
+            background-color: var(--accent-color);
+            border: 4px solid var(--secondary-color);
+        }
+
+        .testimonials {
+            background: linear-gradient(135deg, #ffcccc, #ff9999);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6666, #ff4d4d);
+        }
+
+        /* New Love Counter Section */
+        .love-counter {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .love-counter h2 {
+            font-family: var(--font-secondary);
+            color: var(--accent-color);
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .counter-item {
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .counter-item i {
+            font-size: 2em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .counter-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            background: var(--secondary-color);
+            color: var(--text-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Family Introduction */
+        .family-intro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .family-intro h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .family-intro p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .family-intro .quote {
+            font-style: italic;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--secondary-color), rgba(200, 230, 201, 0.5));
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            display: inline-block;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .family-intro .quote::before {
+            content: '"';
+            font-size: 2em;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            color: var(--accent-color);
+        }
+
+        /* Family Members Grid */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .family-member {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .family-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .family-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .family-member:hover img {
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-family: var(--font-secondary);
+            font-size: 1.4em;
+            margin-bottom: 0.5em;
+            color: var(--text-color);
+        }
+
+        .member-role {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            font-size: 0.95em;
+            color: #555;
+            height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+        }
+
+        .family-member::after {
+            content: 'Read More';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .family-member:hover::after {
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(0,0,0,0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background: #fff;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 700px;
+            position: relative;
+            animation: zoomIn 0.5s ease-out forwards;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #aaa;
+            font-size: 2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .modal-content h3 {
+            text-align: center;
+            font-family: var(--font-secondary);
+            font-size: 1.8em;
+            margin-bottom: 0.5em;
+            color: var(--text-color);
+        }
+
+        .modal-content p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 1em;
+        }
+
+        .modal-content .quote {
+            font-style: italic;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--secondary-color), rgba(200, 230, 201, 0.5));
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            display: inline-block;
+            position: relative;
+            font-size: 1em;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin: 3rem 0;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            width: 45%;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--accent-color);
+            border: 4px solid #fff;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 55%;
+        }
+
+        .timeline-item.left::after {
+            left: -10px;
+        }
+
+        .timeline-item.right::after {
+            right: -10px;
+        }
+
+        .timeline-item h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+            color: var(--text-color);
+        }
+
+        .timeline-item p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.5em;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .testimonial {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+/* Compact Footer Styles with Elegant Red Theme */
+footer {
+    background: linear-gradient(135deg, #8b0000, #991f1f, #800000);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -3px 10px rgba(139, 0, 0, 0.2);
+}
+
+/* Floating Hearts Background - Reduced Size */
+footer::before,
+footer::after {
+    content: '❤';
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0.08;
+    animation: float 6s infinite;
+    color: #ffd7d7;
+}
+
+footer::before {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+footer::after {
+    right: 5%;
+    animation-delay: 3s;
+}
+
+/* Footer Content Styles */
+footer p {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5em;
+    font-size: 0.95em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    color: #ffe6e6;
+}
+
+/* Compact Beating Heart */
+footer .heart-beat {
+    display: inline-block;
+    color: #ffcccb;
+    font-size: 1.2em;
+    margin: 0 3px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Compact Social Icons */
+.social-links {
+    margin-top: 0.8rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #ffe6e6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.social-links a:hover {
+    transform: scale(1.15);
+    color: #ffcccb;
+}
+
+/* Compact Love Border */
+.love-border {
+    max-width: 250px;
+    margin: 0.5rem auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 0.8rem;
+    position: relative;
+    background: rgba(139, 0, 0, 0.3);
+}
+
+.love-border::before {
+    content: '♥';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8b0000;
+    padding: 0 8px;
+    color: #ffcccb;
+    font-size: 1em;
+}
+
+/* Subtle Glow Effect */
+.glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.2); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.2); }
+    70% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+    50% { transform: translateY(-10px) rotate(5deg); opacity: 0.15; }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 3px #fff, 0 0 6px #8b0000;
+    }
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #8b0000;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        padding: 1rem 0.5rem;
+    }
+    
+    .social-links a {
+        margin: 0 8px;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+    }
+}
+/* Beating Heart Animation */
+footer .heart-beat {
+    display: inline-block;
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 5px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Social Icons with Hover Effect */
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* Love Border */
+.love-border {
+    max-width: 300px;
+    margin: 1rem auto;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 1rem;
+    position: relative;
+}
+
+.love-border::before {
+    content: '♥';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f48fb1;
+    padding: 0 10px;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Animations */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+    50% { transform: translateY(-20px) rotate(10deg); opacity: 0.2; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem;
+    }
+    
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            font-size: 1.5em;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--text-color);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        /* Animations */
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                margin-left: 0 !important;
+            }
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item::after {
+                left: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <a href="index.html">Homepage</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Our Beloved Family</h1>
+        <p>The Heartbeat of Our Lives</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Family Introduction -->
+        <section class="family-intro">
+            <h2>Welcome to Our Family</h2>
+            <p>Family is the cornerstone of our lives, offering love, support, and endless joy. Get to know the amazing individuals who make our family unique and strong.</p>
+            <div class="quote">
+                "Family is not an important thing. It's everything." - Michael J. Fox
+            </div>
+        </section>
+
+        <!-- Family Members Grid -->
+        <section class="family-grid">
+            <!-- Example Family Member -->
+            <div class="family-member" data-member="father">
+                <img src="abah.jpeg" alt="Father" class="member-photo">
+                <h3 class="member-name">Mohd Ridwan Bin Seman@Kamarulzaman</h3>
+                <p class="member-role">Father - The Pillar of Strength</p>
+                <p class="member-bio">
+                    My father is a dedicated family man and a successful lecturer at UiTM Shah Alam and UiTM Puncak Perdana. Throughout his career, he has managed to balance his professional responsibilities with his commitment to our family, always putting us first.
+                </p>
+            </div>
+            
+            <!-- Repeat similar blocks for other family members -->
+            <!-- Mother -->
+            <div class="family-member" data-member="mother">
+                <img src="ibu.jpeg" alt="Mother" class="member-photo">
+                <h3 class="member-name">Suraya Binti Mohamad</h3>
+                <p class="member-role">Mother - The Heart of Our Home</p>
+                <p class="member-bio">
+                    My mother is the heart of our family, a loving and selfless woman who fills our home with warmth and joy.
+                </p>
+            </div>
+
+            <!-- Brother -->
+            <div class="family-member" data-member="brother">
+                <img src="abang.jpeg" alt="Brother" class="member-photo">
+                <h3 class="member-name">Muhammad Amir Muzakir</h3>
+                <p class="member-role">Brother - The Jack of All Trades</p>
+                <p class="member-bio">
+                     My brother is a true fighter, not just in the ring but in life. He’s a living example of how challenges can shape someone into an extraordinary individual.
+                </p>
+            </div>
+
+            <!-- Sister -->
+            <div class="family-member" data-member="sister">
+                <img src="wiwi.jpeg" alt="Sister" class="member-photo">
+                <h3 class="member-name">Widad Husna</h3>
+                <p class="member-role">Sister - The Eternal Optimist</p>
+                <p class="member-bio">
+                    I’m the second child in my family—the one who’s always a little too stubborn, a little too rebellious, and a whole lot of unpredictable.
+                </p>
+            </div>
+
+            <!-- Lil Brother -->
+            <div class="family-member" data-member="lil brother">
+                <img src="amnan.jpeg" alt="Little Brother" class="member-photo">
+                <h3 class="member-name">Muhammad Amnan</h3>
+                <p class="member-role">Little Brother - The Gentle Goofball</p>
+                <p class="member-bio">
+                     Meet my little brother, the glue of our family and, ironically, the one who gets the most punches from his older siblings (lovingly, of course).
+                </p>
+            </div>
+            <!-- Lil Sister -->
+            <div class="family-member" data-member="lil sister">
+                <img src="nala.jpeg" alt="Little Sister" class="member-photo">
+                <h3 class="member-name">Najla Husna</h3>
+                <p class="member-role">Little Sister - The Reserved Firecracker</p>
+                <p class="member-bio">
+                    Meet my little sister—the calm in the storm of our chaotic sibling dynamic.
+                </p>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline">
+            <h2>Our Family Journey</h2>
+            <div class="timeline-item left">
+                <h3>1. 7. 2000</h3>
+                <p>The beginning of our beautiful family journey. My parents marriage</p>
+            </div>
+            <div class="timeline-item right">
+                <h3>20. 3. 2001</h3>
+                <p>Welcomed our first child, Muhammad Amir Muzakir.</p>
+            </div>
+            <div class="timeline-item left">
+                <h3>2. 6. 2004</h3>
+                <p>Welcomed our second child, Widad Husna.</p>
+            </div>
+            <div class="timeline-item right">
+                <h3>3. 5. 2006</h3>
+                <p>Welcomed our third child, Muhammad Amnan.</p>
+            </div>
+            <div class="timeline-item left">
+                <h3>30. 3. 2009</h3>
+                <p>Welcomed our fourth child, Najla Husna.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2>Family Gallery</h2>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="fa4.jpeg" alt="Gallery Image 1"></div>
+                    <div class="swiper-slide"><img src="fa5.jpeg" alt="Gallery Image 2"></div>
+                    <div class="swiper-slide"><img src="fa11.jpeg" alt="Gallery Image 3"></div>
+                    <div class="swiper-slide"><img src="fa7.jpeg" alt="Gallery Image 4"></div>
+                    <div class="swiper-slide"><img src="fa13.jpeg" alt="Gallery Image 5"></div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Family Says</h2>
+            <div class="testimonial">
+                <p>“Family is not an important thing. It’s everything.”</p>
+                <p class="author">- Mohd Ridwan</p>
+            </div>
+            <div class="testimonial">
+                <p>"Love, respect, and understanding are the pillars that keep our family strong."</p>
+                <p class="author">- Suraya Mohamad</p>
+            </div>
+            <div class="testimonial">
+                <p>"Together, we create beautiful memories that last a lifetime."</p>
+                <p class="author">- Najla Husna</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top"><i class="fas fa-chevron-up"></i></div>
+
+
+<footer>
+    <div class="love-border">
+        <p>Made with <span class="heart-beat">❤</span> for you</p>
+        <p>Spreading love and joy through design</p>
+    </div>
+    
+                <div class="social-links">
+                    <a href="https://www.youtube.com/watch?v=vTzKo337hS4"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/wiidadhusnaa/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@wiidadhusnaa"><i class="fab fa-tiktok"></i></a>
+                </div>
+</footer>
+
+    <!-- Modal Structure -->
+    <div id="familyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="" class="modal-photo">
+            <h3 class="modal-name"></h3>
+            <p class="modal-role"></p>
+            <p class="modal-full-bio"></p>
+            <div class="quote">
+                "This is a placeholder for the member's favorite quote."
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Scroll to Top Functionality
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('.scroll-to-top').addClass('visible');
+            } else {
+                $('.scroll-to-top').removeClass('visible');
+            }
+        });
+
+        $('.scroll-to-top').click(function() {
+            $('html, body').animate({scrollTop: 0}, 'slow');
+            return false;
+        });
+
+        // Modal Functionality
+        $('.family-member').click(function() {
+            const member = $(this).data('member');
+            let name, role, bio, photo, quote;
+
+            // Define member details
+            switch(member) {
+                case 'father':
+                    name = 'Mohd Ridwan Bin Seman@Kamarulzaman';
+                    role = 'Father - The Pillar of Strength';
+                    bio = `My father is a dedicated family man and a successful lecturer at UiTM Shah Alam and UiTM Puncak Perdana. Throughout his career, he has managed to balance his professional responsibilities with his commitment to our family, always putting us first.
+
+In his younger days, he had a short temper, but as he has grown older, he has become much calmer and more reflective. His wisdom and guidance have profoundly shaped our lives and values, teaching us the importance of resilience, respect, and love.
+
+Although he rarely expresses his affection through words, his actions speak volumes. He showers us with love and care in his own unique way, which I find endearing. I often think of him as a "tsundere" – someone who may appear reserved at first but has a warm and caring side underneath.
+
+Weekends with him are always special. He loves spending quality time with us, whether it’s enjoying simple moments at home or taking us on outings together. These cherished times have created countless beautiful memories and strengthened the bond we share as a family.`;
+                    photo = 'abah.jpeg';
+                    quote = '"Work hard, stay humble, and always help others."';
+                    break;
+                case 'mother':
+                    name = 'Suraya Binti Mohamad';
+                    role = 'Mother - The Heart of Our Home';
+                    bio = `My mother is the heart of our family, a loving and selfless woman who fills our home with warmth and joy. She’s not just a mom but also an incredible chef, whose cooking brings us together over meals that are always made with love. The way her patience and care guide us through life is something I admire deeply—she has always been our rock, supporting us with everything she has.  
+
+She’s also an inspiring teacher, using her free time to share her knowledge with others. Whether she’s preparing lessons or hosting family gatherings, her creativity and dedication always shine through, making every moment feel extra special.  
+
+Even when she scolds or nags, I know it comes from a place of love. Her words, though firm, are her way of pushing us to be better, stronger, and more responsible. They remind me how much she believes in us and wants to see us succeed.  
+
+The way she balances everything so gracefully amazes me—she makes our home a safe and happy place where we can always feel loved. To me, she’s more than a mother; she’s my role model, my greatest supporter, and the heart of everything I hold dear.`;
+                    photo = 'ibu.jpeg';
+                    quote = '"Love and patience can overcome any obstacle."';
+                    break;
+ 		case 'brother':
+                    name = 'Muhammad Amir Muzakir';
+                    role = 'Brother - The Jack-of-All-Trades';
+                    bio = `My brother is a true fighter, not just in the ring but in life. Studying automotive has become more than just an academic pursuit for him—it’s his way of breaking through the barriers life has thrown at him. His passion for cars and innovation keeps him grounded and focused, driving him forward even when the road gets rough. Despite the challenges he’s faced, he never stops learning, never stops growing, and never loses sight of his dreams.  
+
+Life hasn’t been easy for him, but you’d never know it by the way he carries himself. A social butterfly with a smile that can light up any room, he’s built connections across the country, finding friends in places most wouldn’t think to look. His ability to form deep bonds and lead others, even in tough times, shows the strength of his character.  
+
+He’s also an adventurer at heart, channeling his struggles into a thirst for growth and excitement. Whether it’s pushing his body and mind through Muay Thai and MMA or seeking out thrilling experiences, he’s always proving to himself—and to the world—that he’s unbreakable.  
+
+My brother’s journey is one of resilience, strength, and determination. He’s faced hurdles that would make many give up, but he’s pushed through them all with courage and grit. He’s not just my brother but a living example of how challenges can shape someone into an extraordinary individual.`;
+                    photo = 'abang.jpeg';
+                    quote = '"Love can overcome any obstacle."';
+                    break;
+
+                case 'sister':
+                    name = 'Widad Husna';
+                    role = 'Sister - The Eternal Optimist';
+                    bio = `I am the second child in my family—the one who is undeniably stubborn, occasionally rebellious, and, without a doubt, unpredictable. I’m currently studying Information Management at UiTM Segamat, but my true passion lies far beyond spreadsheets and databases. I find my heart in the pages of Chinese novels, which I consider more than just stories—they are an extraordinary gateway to a world that offers something uniquely richer than anything else. And let’s not forget my love for anime, which is an entire universe of excitement, emotion, and adventure that nourishes my imagination like a good meal.
+
+As for my role in the family, I’m often the troublemaker—the one who unintentionally causes a little chaos. Whether I’m misplacing things for the umpteenth time or accidentally tripping over my own two feet, you can count on me to add a bit of unpredictability to the mix. I’m the loud one, the joker, the one who keeps things light and lively, even if that means being the source of a little harmless havoc. Despite my clumsy, somewhat chaotic nature, my family somehow always seems to turn to me when things go awry. Perhaps it’s my unshakable stubbornness, my uncanny ability to pull things together when everyone else is stuck, or maybe it’s simply my philosophy that, "What’s meant to happen will eventually come, so don’t fret now—just tackle the problem when it actually shows up."
+
+I may not always be the calm and composed one, but when it matters most, I’m the one who will be there for my family—ready to face whatever absurdity life throws our way, with a smile, a joke, and all my heart.`;
+                    photo = 'wiwi.jpeg';
+                    quote = '"Dream big and dare to fail."';
+                    break;
+                case 'lil brother':
+                    name = 'Muhammad Amnan';
+                    role = 'Little Brother - The Gentle Goofball';
+                    bio = `Meet my little brother, the glue of our family and, ironically, the one who gets the most punches from his older siblings (lovingly, of course). He’s currently studying Halal Management at UiTM Kuala Pilah and is easily the most unproblematic of us all. In fact, he’s more mature than the older brother and more diligent than the older sister. 
+
+He’s a soft-spoken gentleman with a kind heart, always willing to lend a hand with chores or a listening ear when needed. You’d think he’s perfect, right? Well, think again. This “angel” of a brother has a devilish talent for being annoying—he pesters, teases, and makes fun of us relentlessly, turning every day into a hilarious battlefield. His goofy antics often lead to epic sibling fights, especially with the older brother.
+
+When he’s not being a lovable pest, he enjoys reading e-books, gaming online, and working out—sometimes to the point of obsession. With his social skills and endless circle of friends, he’s the life of every room, balancing his goofy charm with genuine kindness. If there’s anyone who can get under your skin and still make you laugh, it’s him.`;
+                    photo = 'amnan.jpeg';
+                    quote = '"Innovation distinguishes between a leader and a follower."';
+                    break;
+                case 'lil sister':
+                    name = 'Najla Husna';
+                    role = 'Little Sister - The Reserved Firecracker';
+                    bio = `My little sister—the calm in the storm of our chaotic sibling dynamic. She’s still in high school but often carries herself with the poise of someone older. Quiet and reserved, she rarely speaks, especially around outsiders, and exudes a maturity that even makes her feel like more of an older sister than our actual older sister.
+
+She loves cooking and is always ready to lend a hand when asked, though her clingy and affectionate side quickly shows—probably the result of being the youngest and a girl, making her the apple of our parents’ eye. But don’t let her calm demeanor fool you. She has a temper that could rival a volcano, and when she’s angry, she’s terrifying. If you cross her, expect a comeback ten times fiercer than the offense. She’s so scary, she ranks second in the family after our mom when it comes to sheer intimidation.
+
+Despite this, she has a playful side and enjoys online gaming, watching dramas, and spending time with family and friends. She’s also incredibly talented, excelling in music and fashion, and knows how to dress to impress. Versatile and full of surprises, she’s the sibling who keeps everyone on their toes—whether it’s with her quiet strength, her fiery temper, or her unexpected talents.`;
+                    photo = 'nala.jpeg';
+                    quote = '"Family traditions are the threads that bind generations together."';
+                    break;
+                default:
+                    name = 'Unknown';
+                    role = 'Unknown Role';
+                    bio = 'No bio available.';
+                    photo = '/api/placeholder/150/150';
+                    quote = '';
+            }
+
+            // Populate modal content
+            $('.modal-photo').attr('src', photo);
+            $('.modal-name').text(name);
+            $('.modal-role').text(role);
+            $('.modal-full-bio').text(bio);
+            $('.modal-content .quote').text(quote);
+
+            // Display modal
+            $('#familyModal').fadeIn();
+        });
+
+        // Close Modal
+        $('.close-btn').click(function() {
+            $('#familyModal').fadeOut();
+        });
+
+        // Close modal when clicking outside the content
+        $(window).click(function(event) {
+            if ($(event.target).is('#familyModal')) {
+                $('#familyModal').fadeOut();
+            }
+        });
+
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+</body>
+</html>

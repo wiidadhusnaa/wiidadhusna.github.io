@@ -1,0 +1,984 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Life Journey - Experience Page</title>
+    <style>
+        /* Color scheme variables */
+        :root {
+            --primary: #f9dcdc;
+            --secondary: #fce2e5;
+            --accent: #fad4d8;
+            --text-dark: #d8999e;
+            --text-light: #f2b2b6;
+            --bg-light: #fff1f2;
+        }
+
+        /* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Elegant, modern font */
+    background-color: var(--bg-light);
+    background-image: url('bg.png'), url('background-pattern.jpg'); /* Adds a subtle texture */
+    background-repeat: repeat;
+    background-size: auto, contain;
+    background-blend-mode: soft-light;
+    color: var(--text-dark);
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Text Formatting */
+h1 {
+    text-align: center;
+    color: #ff8a9e; /* Brighter pink shade */
+    font-size: 38px; /* Slightly larger font for emphasis */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    animation: titleGlow 2s infinite alternate;
+    font-family: 'Georgia', serif; /* Bold and elegant serif font */
+    font-weight: bold;
+}
+
+
+        h2 {
+            color: var(--text-dark);
+            margin: 1.5em 0 1em 0;
+            font-size: 24px;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 20px;
+            margin: 1em 0;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+            to { text-shadow: 2px 2px 10px rgba(249, 220, 220, 0.4); }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 2em;
+        }
+
+        /* Layout */
+        .main-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .content {
+            flex: 1;
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* Navigation */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+/* Clock Styles */
+#clock {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-dark);
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Visitor Counter Styles */
+#visitor-counter {
+    font-size: 16px;
+    text-align: center;
+    color: var(--text-dark);
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#count {
+    font-weight: 700;
+    color: #ff8a9e;
+    font-size: 18px;
+}
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.nav-links li {
+    margin-bottom: 12px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.nav-links a:hover {
+    transform: translateX(5px);
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a:hover::before {
+    left: 100%;
+}
+/* Advertisement Banner */
+.ad-banner {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ad-banner marquee {
+    display: flex;
+    gap: 15px;
+}
+
+.ad-banner img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.ad-banner img:hover {
+    transform: scale(1.05);
+}
+
+        /* Experience Table */
+        .experience-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        .experience-table th, 
+        .experience-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .experience-table th {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .experience-table tr:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-card {
+            padding: 15px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-dark);
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+
+/* Multimedia Section */
+.multimedia-section {
+    margin: 40px 0;
+    padding: 40px;
+    background-color: var(--accent);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.multimedia-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 1200px; /* Increased max-width */
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    background-color: black; /* Added for better video display */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: contain; /* Ensures video maintains aspect ratio */
+}
+
+.video-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.video-controls button {
+    padding: 15px 30px;
+    margin: 0 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: var(--text-dark);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background-color: #f8f8f8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .video-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .multimedia-section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .video-controls button {
+        padding: 12px 24px;
+        margin: 0 8px;
+        font-size: 16px;
+    }
+}
+
+ /* Certificate Section Styles */
+    .certificate-categories {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .category-btn {
+        padding: 8px 16px;
+        border: none;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .category-btn.active {
+        background-color: var(--accent);
+        color: white;
+    }
+
+    .certificate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .certificate-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .certificate-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .certificate-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .certificate-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .certificate-item:hover .certificate-overlay {
+        transform: translateY(0);
+    }
+
+    .certificate-overlay h3 {
+        margin: 0 0 5px 0;
+        font-size: 16px;
+        color: var(--text-dark);
+    }
+
+    .certificate-overlay p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--text-light);
+    }
+
+    .cert-date {
+        font-style: italic;
+        margin-top: 5px !important;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        z-index: 1000;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+
+    .modal img {
+        max-width: 90%;
+        max-height: 80vh;
+        margin: 20px auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .close-modal {
+        position: absolute;
+        right: 25px;
+        top: 10px;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .modal-details {
+        color: white;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-links li {
+        flex: 1 1 calc(50% - 10px);
+        margin-bottom: 0;
+    }
+}
+    }
+
+/* Grid styling */
+.certificate-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.certificate-item {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.certificate-item:hover {
+    transform: scale(1.05);
+}
+
+.certificate-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.certificate-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.certificate-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-item:hover .certificate-overlay {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .certificate-item {
+        width: 100%;
+    }
+}
+/* General styling for the section */
+#certificates {
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Table styling */
+.certificate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-table th,
+.certificate-table td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.certificate-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.certificate-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.certificate-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.certificate-table a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.certificate-table a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .certificate-table {
+        font-size: 14px;
+    }
+}
+</style>
+
+</head>
+<body>
+    <h1>My Professional Journey</h1>
+    <p class="subtitle">Building the Future Through Technology & Innovation</p>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div id="clock"></div>
+            <div id="visitor-counter">
+                Visitors: <span id="count">0</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#multimedia">Project Highlights</a></li>
+                <li><a href="index.html">Homepage</a></li>
+            </ul>
+            <div class="ad-banner">
+                <marquee behavior="alternate" scrollamount="3">
+                    <img src="ads.jpg" alt="Advertisement" width="200">
+                    <img src="ads1.jpg" alt="Advertisement" width="170">
+                    <img src="ads2.jpg" alt="Advertisement" width="200">
+                </marquee>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2>Work Experience</h2>
+                <table class="experience-table">
+                    <thead>
+                        <tr>
+                            <th>Years</th>
+                            <th>Position</th>
+                            <th>Institution/Company</th>
+                            <th>Achievements</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024 (July-September)</td>
+                            <td>Internship Student</td>
+                            <td>Perpustakaan Tun Abdul Razak (PTAR), UiTM</td>
+                            <td>
+                                <ul>
+                                    <li>Rotated through multiple library departments, gaining diverse skills</li>
+                                    <li>Learned digitization processes and implemented records management</li>
+                                    <li>Assisted in creating promotional materials and improving data organization</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2022-Present</td>
+                            <td>Diploma Student</td>
+                            <td>UiTM Johor, Segamat</td>
+                            <td>
+                                <ul>
+                                    <li>Consistently achieved the Dean's List for outstanding academic performance</li>
+                                    <li>Participated in outreach programs, enhancing organizational skills</li>
+                                    <li>Collaborated on multiple projects, improving team communication</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2017-2021</td>
+                            <td>High School Student</td>
+                            <td>SMK Seksyen 18</td>
+                            <td>
+                                <ul>
+                                    <li>Excelled in academics, earning recognition in school events</li>
+                                    <li>Actively participated in extracurricular activities</li>
+                                    <li>Developed strong foundational knowledge for higher education</li>
+                                </ul>
+                            </td>
+                        </tr>
+  <tr>
+                            <td>2010-2016</td>
+                            <td>Primary Student</td>
+                            <td>SK Seksyen 9</td>
+                            <td>
+                                <ul>
+                                    <li>Excelled in academics, earning recognition in school events</li>
+                                    <li>Actively participated in extracurricular activities</li>
+                                    <li>Developed strong foundational knowledge for higher education</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Notable Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Industrial Training at Perpustakaan Tun Abdul Razak (PTAR), UiTM</h3>
+                        <p>Completed a two-month internship, rotating across various library departments</p>
+                        <p><strong>Key Contributions:</strong> Gained hands-on experience in record management, data handling, and library SOPs</p>
+                    </div>
+                    <div class="project-card">
+                        <h3> Digitization Project</h3>
+                        <p>Contributed to a digitization project aimed at preserving library materials for future use.</p>
+                        <p><strong>Roles & Responsibilities:</strong> Assisted in the scanning and indexing of printed materials to create a digital repository.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Promotional Materials Design for Library Events</h3>
+                        <p>Designed engaging promotional materials for various library campaigns and events.</p>
+                        <p><strong>Roles & Responsibilities:</strong> Created posters, banners, videos and digital content using Canva and other design tools.</p>
+                    </div>
+                </div>
+            </section>
+
+<!-- Replace the existing certificates section with this code -->
+<section id="certificates">
+    <h2>Professional Certificates & Achievements</h2>
+
+    <table class="certificate-table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Certificate Title</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+                <td>1</td>
+                <td>Sijil Pencapaian: Anugerah Emas</td>
+                <td>Perkampungan Bahasa Dan Kesenian Pertandingan Hiwar</td>
+                <td>2014</td>
+                <td><a href="sijil3.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>2</td>
+                <td>Sijil Penyertaan</td>
+                <td>Pertandingan Kawad Kaki Badan-Badan Beruniform</td>
+                <td>2014</td>
+                <td><a href="sijil14.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>3</td>
+                <td>Sijil Penyertaan</td>
+                <td>Festival Buku Kanak-Kanak Kebangsaan 2014</td>
+                <td>2014</td>
+                <td><a href="sijil16.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+ <tr>
+                <td>4</td>
+                <td>Sijil Penghargaan</td>
+                <td>Pertandingan Nasyid Hari Puteri Islam Malaysia Peringkat Daerah Petaling Perdana</td>
+                <td>2014</td>
+                <td><a href="sijil17.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>5</td>
+                <td>Sijil Pentauliahan</td>
+                <td>Pelantikan Pengawas Sekolah Sesi 2014</td>
+                <td>2014</td>
+                <td><a href="sijil23.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>6</td>
+                <td>Sijil Penghargaan: Tempat Keempat</td>
+                <td>Kem Pemilihan Tokoh Nilam Dan Kemah Membaca Peringkat Daerah Petaling 2015</td>
+                <td>2015</td>
+                <td><a href="sijil5.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>7</td>
+                <td>Sijil Penyertaan</td>
+                <td>2nd Malaysia Indonesia International Interactive and Science Innovation Programme 2015</td>
+                <td>2015</td>
+                <td><a href="sijil6.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>8</td>
+                <td>Sijil Penyertaan</td>
+                <td>Pertandingan Video Dokumentari Soft Skills Sekolah Berprestij Tinggi (SBT) Tahun 2015</td>
+                <td>2015</td>
+                <td><a href="sijil13.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+ <tr>
+                <td>9</td>
+                <td>Sijil Pencapaian: Naib Johan</td>
+                <td>Pertandingan Ping Pong Anjuran Unit IM15 Ping Pong 2015</td>
+                <td>2015</td>
+                <td><a href="sijil21.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>Sijil Pencapaian: Johan</td>
+                <td>Kalam Jamaie: Program Kemahiran Amal Islami Sekolah-Sekolah Rendah Agama (KAMIL) Daerah Petaling</td>
+                <td>2016</td>
+                <td><a href="sijil1.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ 	    <tr>
+                <td>11</td>
+                <td>Sijil Pencapaian: Naib Johan</td>
+                <td>Kalam Jamaie: Program Kemahiran Amal Islami Sekolah-Sekolah Rendah Agama (KAMIL) Peringkat Zon</td>
+                <td>2016</td>
+                <td><a href="sijil2.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+ <tr>
+                <td>12</td>
+                <td>Sijil Pencapaian: Naib Johan</td>
+                <td>Pertandingan Bercerita Majlis Tadarus Al-Quran Sekolah-Sekolah (MTQSS) Peringkat Firqah 1 Sekolah Rendah</td>
+                <td>2016</td>
+                <td><a href="sijil7.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>13</td>
+                <td>Sijil Penyertaan</td>
+                <td>Kejohanan Bola Jaring MSSD Petaling Perdana 2016</td>
+                <td>2016</td>
+                <td><a href="sijil8.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>14</td>
+                <td>Sijil Penyertaan</td>
+                <td>Kursus Latihan Bersepadu Fasilitator Badan Beruniform</td>
+                <td>2016</td>
+                <td><a href="sijil9.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>15</td>
+                <td>Sijil Penyertaan</td>
+                <td>Kursus Masakan Mi Kolok di Kolej Komuniti Kuching</td>
+                <td>2016</td>
+                <td><a href="sijil11.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>16</td>
+                <td>Sijil Penghargaan</td>
+                <td>Tokoh Memabaca Nilam Februari Program Nilam 2016</td>
+                <td>2016</td>
+                <td><a href="sijil20.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+<tr>
+                <td>17</td>
+                <td>Sijil Penyertaan</td>
+                <td>Bengkel Sains & Matematik UPSR 2016, Universiti Malaya Kuala Lumpur</td>
+                <td>2016</td>
+                <td><a href="sijil22.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+ <tr>
+                <td>18</td>
+                <td>Sijil Pencapaian: Johan</td>
+                <td>Pertandingan Deklamasi Sajak Kemerdekaan 2017</td>
+                <td>2017</td>
+                <td><a href="sijil15.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>19</td>
+                <td>Sijil Penyertaan</td>
+                <td>Perkhemahan Badan Berunifrom Tingkatan 1</td>
+                <td>2017</td>
+                <td><a href="sijil19.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>20</td>
+                <td>Sijil Penyertaan</td>
+                <td>Kursus Latihan Bersepadu Fasilitator Badan Beruniform</td>
+                <td>2018</td>
+                <td><a href="sijil10.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>21</td>
+                <td>Certificate Of Participation</td>
+                <td>Foster Friendship Program With Ikubunkuan Institute Of Japan</td>
+                <td>2018</td>
+                <td><a href="sijil18.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>22</td>
+                <td>Sijil Penyertaan</td>
+                <td>Kem Transformasi Kepimpinan Bersepadu Kokurikulum Berasaskan STEM Smk Seksyen 18, Shah Alam</td>
+                <td>2019</td>
+                <td><a href="sijil12.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+<tr>
+                <td>23</td>
+                <td>Sijil Pencapaian: Tempat Keempat</td>
+                <td>Kem Transformasi Kepimpinan Bersepadu Kokurikulum Berasaskan STEM</td>
+                <td>2019</td>
+                <td><a href="sijil25.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>24</td>
+                <td>Sijil Penghargaan</td>
+                <td>Karnival STEM Smk Seksyen 18, Shah Alam Tahun 2020</td>
+                <td>2020</td>
+                <td><a href="sijil4.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+ <tr>
+                <td>25</td>
+                <td>Watikah Pelantikan</td>
+                <td>Pelantikan Penolong Ketua Kelas 4 Ali</td>
+                <td>2020</td>
+                <td><a href="sijil24.jpeg" target="_blank">View Full Size</a></td>
+            </tr>
+
+    </div>
+ </tbody>
+    </table>
+</section>
+            <!-- Multimedia Section -->
+	<section id="multimedia" class="multimedia-section">
+        <h2>Project Highlights</h2>
+        <div class="video-container">
+            <video controls>
+                <source src="videoex.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-controls">
+            <button onclick="document.querySelector('video').play()">Play</button>
+            <button onclick="document.querySelector('video').pause()">Pause</button>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="certificate-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Full size certificate">
+        <div class="modal-details">
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+
+        // Visitor Counter
+        let count = localStorage.getItem('visitorCount') || 0;
+        count++;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('count').textContent = count;
+    </script>
+</body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widad Husna - Personal Portfolio</title>
+    <!-- Google Fonts for elegant headers -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #abcdef; /* Soft blue shade */
+    --text-color: #2c3e50;
+    --section-bg: #ffffff;
+}
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+       /* Header Styling */
+        header {
+            background-image: url('https://i.pinimg.com/originals/9e/b5/6e/9eb56e6a49738bb970af2bde201913b1.jpg');
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif; /* Elegant font */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif; /* Elegant font for main header */
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .header-content p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .datetime {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+
+
+        /* Video Section Styles */
+        .video-section {
+            background: var(--section-bg);
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 1rem 0;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+ /* Navigation */
+        .main-navigation {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--section-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .primary-nav {
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .primary-nav a:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    /* Content Sections */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            background: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+/* H2 Styling for section titles */
+        h2 {
+            font-family: 'Playfair Display', serif; /* Elegant font for section titles */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+
+/* Modified Slideshow Styles */
+.slideshow {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 2rem auto;  /* Changed from '2rem 0' to center it */
+    height: 300px;      /* Changed from 400px to 300px */
+    background: #000;
+    max-width: 600px;   /* Added max-width to control overall size */
+}
+
+.slideshow-container {
+    position: relative;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+        /* Blog Section */
+        .blog-post {
+            padding: 1rem;
+            border-left: 3px solid var(--secondary-color);
+            margin-bottom: 1rem;
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+       /* Responsive Design */
+        @media (max-width: 768px) {
+            .primary-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .primary-nav a {
+                text-align: center;
+            }
+
+            .quick-access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+         /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+.main-nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-button {
+            background: var(--section-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--section-bg), #f8f9fa);
+        }
+
+        .nav-button i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Icon placeholder styles */
+        .nav-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+ /* Navigation Arrows */
+        .slideshow-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .nav-button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+  /* Dots Navigation */
+        .slideshow-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+
+ /* Quick Access Grid */
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+
+        .quick-access-button {
+            background: var(--section-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .quick-access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: linear-gradient(to bottom right, var(--section-bg), #f8f9fa);
+        }
+
+        .quick-access-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+  /* Add these new styles for the anime character section */
+    .anime-character-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .character-card {
+        background: var(--section-bg);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .character-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .character-gif {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 3px solid var(--secondary-color);
+    }
+
+    .character-info {
+        padding: 1.5rem;
+    }
+
+    .character-info h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+    }
+
+    .character-info p {
+        color: var(--text-color);
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .anime-title {
+        color: var(--secondary-color);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+/*audio section*/
+        .audio-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section-header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .audio-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .audio-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .song-info {
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .song-artist {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f0f2f5;
+        }
+
+        audio::-webkit-media-controls-play-button {
+            background-color: #4a90e2;
+            border-radius: 50%;
+        }
+
+        audio::-webkit-media-controls-play-button:hover {
+            background-color: #357abd;
+        }
+
+        @media (max-width: 768px) {
+            .audio-section {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .section-header h1 {
+                font-size: 2em;
+            }
+</style>
+</head>
+<body>
+
+    <header>
+    <div class="header-overlay"></div> <!-- Optional overlay for text readability -->
+    <div class="header-content">
+        <div class="logo">
+            <img src="logo1.png" alt="Wiwi Logo" style="height: 111px;"> <!-- Adjust the height to fit your needs -->
+        </div>
+        <h1>Welcome to Wiwi's Personal Website!</h1>
+        <p>Information Management Student | Chinese Novel Enthusiast | Lifelong Learner</p>
+        <div class="datetime" id="datetime"></div>
+    </div>
+</header>
+
+  <nav class="main-navigation">
+        <div class="nav-container">
+            <div class="primary-nav">
+                <a href="#about">About</a>
+                <a href="#featured-music">Featured Music</a>
+                <a href="#skills">Skills</a>
+                <a href="#favorites">Favorites</a>
+                <a href="#anime-characters">Anime Characters</a> <!-- Add this new nav item -->
+		<a href="#audio">Song</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="quick-access-grid">
+        <a href="biodata.html" class="quick-access-button">
+            <span class="quick-access-icon">👤</span>
+            Biodata
+        </a>
+        <a href="experience.html" class="quick-access-button">
+            <span class="quick-access-icon">💼</span>
+            Experience
+        </a>
+        <a href="education.html" class="quick-access-button">
+            <span class="quick-access-icon">🎓</span>
+            Education
+        </a>
+        <a href="family.html" class="quick-access-button">
+            <span class="quick-access-icon">👨‍👩‍👧‍👦</span>
+            Family
+        </a>
+        <a href="gallery.html" class="quick-access-button">
+            <span class="quick-access-icon">🖼️</span>
+            Gallery
+        </a>
+    </div>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div>
+                    <p>Hello! I'm <strong>Widad Husna Binti Mohd Ridwan</strong>, known as <strong>Wiwi</strong>. As a final-year Information Management student, I've developed expertise in record management, library sciences, and information systems.</p>
+                    <p>My passion extends beyond academics – I love finding innovative ways to organize and manage information effectively. I'm particularly interested in the intersection of technology and culture.</p>
+                    <p>One of my favorite pastimes is reading Chinese novels, which offer me rich narratives and diverse perspectives. These stories inspire my creativity and broaden my cultural understanding.</p>
+                </div>
+                <div class="slideshow">
+                    <div class="slideshow-container">
+                        <div class="slide active">
+                            <img src="gambar1.jpeg" alt="Photo 1">
+                        </div>
+                        <div class="slide">
+                            <img src="gambar2.jpeg" alt="Photo 2">
+                        </div>
+                        <div class="slide">
+                            <img src="gambar3.jpeg" alt="Photo 3">
+                        </div>
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="nav-button prev">←</button>
+                        <button class="nav-button next">→</button>
+                    </div>
+                    <div class="slideshow-dots"></div>
+                </div>
+            </div>
+        </section>
+
+  <section id="featured-music" class="video-section">
+            <h2>Featured Music</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/o231fOo8cNg"
+                    title="One Piece OST - Mother Sea"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-description">
+                <h3>One Piece OST - Mother Sea</h3>
+                <p>One of my favorite musical pieces that captures the essence of adventure and emotion. This beautiful orchestral piece represents my love for both music and storytelling.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Professional Skills</h2>
+            <div class="skill-bar">
+                <label>HTML & CSS</label>
+                <progress value="80" max="100"></progress>
+            </div>
+            <div class="skill-bar">
+                <label>Record Management</label>
+                <progress value="90" max="100"></progress>
+            </div>
+            <div class="skill-bar">
+                <label>Library Management</label>
+                <progress value="85" max="100"></progress>
+            </div>
+        </section>
+
+        <section id="favorites">
+            <h2>My Favorites</h2>
+            <div class="favorites-grid">
+                <div>
+                    <h3>📚 Reading</h3>
+                    <p>Favorite Book: <em>From Sidekick To Bigshot</em></p>
+                    <p>Preferred Genres: Fantasy, Wuxia</p>
+                </div>
+                <div>
+                    <h3>🎵 Music</h3>
+                    <p>Currently Playing: "Lana Del Rey Sung by Margaret ft Bleachers"</p>
+                </div>
+            </div>
+        </section>
+
+  <!-- Add this new section before the blog section -->
+    <section id="anime-characters">
+        <h2>My Favorite Anime Characters</h2>
+        <div class="anime-character-grid">
+            <!-- Character 1 -->
+            <div class="character-card">
+                <img class="character-gif" src="gif2.gif" alt="Monkey D. Luffy" /> <!-- Replace with actual GIF URL -->
+                <div class="character-info">
+                    <span class="anime-title">BLACK CLOVERr</span>
+                    <h3>Yami Sukehiro</h3>
+                    <p>A powerful yet laid-back Magic Knight Captain of the Black Bulls from a foreign land and wields Dark Magic with immense skill and grit.</p>
+                </div>
+            </div>
+
+            <!-- Character 2 -->
+            <div class="character-card">
+                <img class="character-gif" src="gif6.gif" alt="Levi Ackerman" /> <!-- Replace with actual GIF URL -->
+                <div class="character-info">
+                    <span class="anime-title">SOLO LEVELLING</span>
+                    <h3>Sung Jin-Woo</h3>
+                    <p>An initially weak E-rank hunter, evolves into the Shadow Monarch and the strongest hunter of all, navigating a world filled with dungeons and powerful entities.</p>
+                </div>
+            </div>
+
+            <!-- Character 3 -->
+            <div class="character-card">
+                <img class="character-gif" src="gif5.gif" alt="Killua Zoldyck" /> <!-- Replace with actual GIF URL -->
+                <div class="character-info">
+                    <span class="anime-title">ONE PIECE</span>
+                    <h3>Trafalgar D. Water Law </h3>
+                    <p>Surgeon of Death, is a skilled doctor, pirate, and captain of the Heart Pirates, known for his mastery of the Ope Ope no Mi Devil Fruit.</p>
+                </div>
+            </div>
+
+            <!-- Character 4 -->
+            <div class="character-card">
+                <img class="character-gif" src="gif4.gif" alt="Satoru Gojo" /> <!-- Replace with actual GIF URL -->
+                <div class="character-info">
+                    <span class="anime-title">HAIKYUU</span>
+                    <h3>Kotaro Bokuto</h3>
+                    <p>Enthusiastic and unpredictable ace of Fukurodani Academy's volleyball team, is renowned for his incredible spikes and infectious energy on the court.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section id="blog">
+            <h2>Latest Updates</h2>
+            <div class="blog-post">
+                <h3>Exploring Information Management</h3>
+                <p>Recently delved into how technology impacts information organization. The intersection of traditional methods with modern tech is fascinating!</p>
+            </div>
+            <div class="blog-post">
+                <h3>Current Reading Journey</h3>
+                <p>Currently immersed in a novel that beautifully blends fantasy with Chinese culture. The storytelling techniques are truly inspiring!</p>
+            </div>
+        </section>
+	<section>
+<section id="audio">
+  <div class="container">
+        <div class="header">
+            <h1>🎵 My Favorite Songs</h1>
+        </div>
+        <div class="song-list">
+            <div class="song-card">
+                <div class="song-title">Bintang Yang Hilang</div>
+                <div class="song-artist">Artist: Arvian Dwi</div>
+                <audio controls>
+                    <source src="favs.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="song-card">
+                <div class="song-title">Somebody's Pleasure (Extended Version)</div>
+                <div class="song-artist">Artist: Aziz Hedra</div>
+                <audio controls>
+                    <source src="favs1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="song-card">
+                <div class="song-title">Tunggu Apa Lagi</div>
+                <div class="song-artist">Artist: Nyoman Paul</div>
+                <audio controls>
+                    <source src="favs2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+   </section>
+    </main>
+
+     <footer>
+        <p>&copy; 2024 Widad Husna Binti Mohd Ridwan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // DateTime update function [remains the same]
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDateTime();
+            setInterval(updateDateTime, 60000);
+
+            // Slideshow initialization
+            const slides = document.querySelectorAll('.slide');
+            const dotsContainer = document.querySelector('.slideshow-dots');
+            let currentSlide = 0;
+            let slideInterval;
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            // Navigation functions
+            function updateSlides() {
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentSlide);
+                });
+                
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlides();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlides();
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlides();
+                resetInterval();
+            }
+
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            // Event listeners
+            document.querySelector('.next').addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+
+            document.querySelector('.prev').addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+
+            // Start automatic slideshow
+            resetInterval();
+        });
+    </script>
+</body>
+</html>
