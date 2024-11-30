@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Academic Journey - Multimedia Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #fff5d7;
+            --secondary-color: #ffe082;
+            --accent-color: #8b7355;
+            --text-color: #5c4d00;
+            --shadow-color: rgba(139, 115, 85, 0.2);
+            --gradient-start: #ffe082;
+            --gradient-end: #ffd54f;
+        }
+
+        /* Enhanced Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            background-image: 
+                radial-gradient(circle at 100% 100%, var(--shadow-color) 0, transparent 10px),
+                radial-gradient(circle at 0 100%, var(--shadow-color) 0, transparent 10px),
+                radial-gradient(circle at 100% 0, var(--shadow-color) 0, transparent 10px),
+                radial-gradient(circle at 0 0, var(--shadow-color) 0, transparent 10px);
+            background-size: 20px 20px;
+            background-attachment: fixed;
+        }
+
+        .content-wrapper {
+            background: rgba(255, 245, 215, 0.95);
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 30px;
+            box-shadow: 0 0 40px var(--shadow-color);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+       /* Enhanced Header Section */
+        .header-section {
+            position: relative;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            background: linear-gradient(120deg, #5c4d00 0%, #8b7355 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            background: rgba(255, 245, 215, 0.9);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 30px var(--shadow-color);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        /* Text Formatting */
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px var(--shadow-color);
+            margin: 20px 0;
+            background: linear-gradient(120deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-style: italic;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Super/Subscript Demo */
+        .formula-example {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* Moving Banner */
+        .moving-banner {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            padding: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .banner-text {
+            display: inline-block;
+            animation: moveLeft 20s linear infinite;
+            color: var(--text-color);
+            font-size: 1.2em;
+        }
+
+        @keyframes moveLeft {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Navigation */
+        .nav-container {
+            text-align: center;
+            margin: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 245, 215, 0.9);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            background: linear-gradient(to bottom, var(--secondary-color), #ffd54f);
+            border: none;
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            background: linear-gradient(to bottom, #ffd54f, #ffca28);
+        }
+        /* Enhanced Video Section */
+        .video-showcase {
+            position: relative;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            margin: 40px 0;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-btn {
+            padding: 12px 25px;
+            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+            border: none;
+            border-radius: 25px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+/* Enhanced Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+    aspect-ratio: 4/3; /* This ensures all items have the same ratio */
+    max-width: 350px; /* Fixed width for consistency */
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will ensure images fill the container */
+    transition: all 0.5s ease;
+}
+
+/* Enhanced Image Effects */
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Adding shine effect */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    animation: shine 0.75s;
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+/* Adding zoom effect on hover */
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+/* Adding text animation */
+.gallery-item::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(139, 115, 85, 0.9);
+    color: white;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    transform: translateY(0);
+}
+
+         /* Modern Table Design */
+        .education-table {
+            margin: 40px 0;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
+        .education-table tr {
+            background: white;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .education-table tr:hover {
+            transform: scale(1.02);
+        }
+
+        .education-table th,
+        .education-table td {
+            padding: 20px;
+            border: none;
+        }
+
+        .education-table th:first-child {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .education-table th:last-child {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+            /* Enhanced Achievement Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Interactive Elements */
+        #clock {
+            text-align: center;
+            font-size: 2em;
+            color: var(--accent-color);
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+
+        #visitor-counter {
+            text-align: center;
+            margin: 20px 0;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        /* Media Section */
+        .media-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .media-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+
+        /* Footer Enhancement */
+        footer {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 -5px 20px var(--shadow-color);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="content-wrapper">
+        <!-- Moving Banner -->
+        <div class="moving-banner">
+            <div class="banner-text">🎓 Welcome to My Educational Journey - Exploring Academic Excellence and Achievements 🌟</div>
+        </div>
+
+        <!-- Title with Formatting -->
+        <h1>My Educational Journey</h1>
+        <p class="subtitle">Pursuing Excellence in <u>Information Management</u> and <i>Technology</i></p>
+
+        <!-- Formula Example -->
+        <div class="formula-example">
+            Einstein's Famous Equation: E = mc<sup>2</sup><br>
+            Chemical Formula: H<sub>2</sub>O
+        </div>
+
+        <!-- Digital Clock -->
+        <div id="clock" class="float-animation"></div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-container">
+            <a href="index.html" class="nav-button">🏠 Homepage</a>
+            <a href="biodata.html" class="nav-button">👤 Biodata</a>
+            <a href="experience.html" class="nav-button">💼 Experience</a>
+            <a href="gallery.html" class="nav-button">🖼️ Gallery</a>
+         </div>
+
+<!-- Image Gallery with Enhanced Effects -->
+<div class="gallery">
+    <div class="gallery-item" data-title="University Life">
+        <img src="gambared1.jpeg" alt="University Life" />
+
+    </div>
+    <div class="gallery-item" data-title="Highschool Life">
+        <img src="gambared3.jpeg" alt="Highschool Life" />
+
+    </div>
+    <div class="gallery-item" data-title="Elementary School Life">
+        <img src="gambared2.jpeg" alt="Elementary School Life" />
+
+    </div>
+</div>
+
+        <!-- Education Table -->
+        <table class="education-table">
+            <tr>
+                <th>Level</th>
+                <th>Institution</th>
+                <th>Years</th>
+                <th>Major Achievements</th>
+                <th>Projects</th>
+            </tr>
+            <tr>
+                <td><b>Bachelor's Diploma</b></td>
+                <td>University of Technology Mara</td>
+                <td>2022-2024</td>
+                <td>CGPA: 3.85/4.00</td>
+                <td>AI-Powered Learning System</td>
+            </tr>
+            <tr>
+                <td><b>Highschool Life</b></td>
+                <td>Sekolah Menengah Kebangsaan Seksyen 18</td>
+                <td>2017-2021</td>
+                <td>SPM: 7A</td>
+                <td>TrEES YV4C Project</td>
+            </tr>
+            <tr>
+                <td><b>Elementary School</b></td>
+                <td>High School of Innovation</td>
+                <td>2012-2017</td>
+                <td>Straight A's UPSR</td>
+                <td>2nd Malaysia Indonesia International Interactive and Science Innovation Programme</td>
+            </tr>
+        </table>
+
+        <!-- Achievement Cards -->
+        <div class="achievements">
+            <div class="achievement-card">
+                <h2>🏆 Academic Awards</h2>
+                <ol>
+                    <li>Dean's List (All Semesters)</li>
+                    <li>Best Student Award 2015</li>
+                    <li>Golden Award Hiwar Competition</li>
+                    <li>Golden Award Poetry Recitation</li>
+ 		    <li>Golden Award Kalam Jamaie</li>
+                </ol>
+            </div>
+            
+            <div class="achievement-card">
+                <h2>👥 Leadership Roles</h2>
+                <ul>
+                    <li>Class President for 6 Years</li>
+                    <li>TrEES Club President</li>
+                    <li>Volunteer Teaching Assistant</li>
+                    <li>Student Council Member</li>
+                </ul>
+            </div>
+
+            <div class="achievement-card">
+                <h2>🌟 Skills</h2>
+                <ul>
+                    <li>Digital Literacy</li>
+                    <li>Information System Literacy</li>
+                    <li>Record Management</li>
+                    <li>Information Literacy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Media Section -->
+        <div class="video-showcase">
+            <h2>My Journey Highlights</h2>
+            <div class="video-container">
+                <video id="myVideo" controls>
+                    <source src="videoex2.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-controls">
+                <button class="video-btn" onclick="document.getElementById('myVideo').play()">Play</button>
+                <button class="video-btn" onclick="document.getElementById('myVideo').pause()">Pause</button>
+                <button class="video-btn" onclick="document.getElementById('myVideo').currentTime = 0">Restart</button>
+            </div>
+        </div>
+            
+            <div class="media-card">
+                <h2>🎵 Project Showcase</h2>
+                <audio controls style="width: 100%">
+                    <source src="lagu.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+         <footer>
+            <p>© 2024 My Educational Journey - Created with ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        // Enhanced Particle.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 1000 } },
+                color: { value: '#8b7355' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#8b7355',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Visitor Counter
+        let count = 1234;
+        setInterval(() => {
+            count++;
+            document.getElementById('count').textContent = count.toLocaleString();
+        }, 60000);
+    </script>
+</body>
+</html>
